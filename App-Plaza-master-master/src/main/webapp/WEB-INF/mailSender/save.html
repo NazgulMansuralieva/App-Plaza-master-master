@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    form, input {
+        text-align: center;
+        width: auto;
+    }
+</style>
+<body>
+<form th:object="${mail}"
+      th:action="@{save}"
+      th:method="post">
+    <input th:text="sender" th:field="*{sender}" placeholder="sender">
+    <br>
+    <input th:text="text" th:field="*{text}" placeholder="text">
+    <br>
+
+    <button type="submit" style="background-color: green">ADD</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    .my_table{
+        width: 80px;
+        margin: 0 auto;
+    }
+</style>
+<body>
+<div class="my_table">
+    <table class="table table-success table-striped-columns">
+        <tr>
+            <td>ID</td>
+            <td>NAME</td>
+            <td>DESCRIPTION</td>
+            <td>DEVELOPER</td>
+            <td>VERSION</td>
+            <td>appStatus</td>
+            <td style="background-color: aqua">UPDATE</td>
+            <td style="background-color: red">DELETE</td>
+        </tr>
+        <tr th:each="application:${applicationList}">
+            <td th:text="${application.id}"></td>
+            <td th:text="${application.name}"></td>
+            <td th:text="${application.developer}"></td>
+            <td th:text="${application.version}"></td>
+            <td th:text="${application.appStatus}"></td>
+            <td th:text="${application.genreName}"></td>
+            <td>
+                <a th:href="@{/apps/update/{id}(id=${application.getId()})}">
+                    <button type="button" style="background-color: aqua">update</button>
+                </a>
+            </td>
+            <td>
+                <a th:href="@{/apps/{id}(id=${application.id})}">
+                    <button type="button" style="background-color:red">delete</button>
+                </a>
+            </td>
+        </tr>
+<!--        <button><a th:href="@{apps/add}">CREATE APPLICATION</a></button>-->
+
+    </table>
+</div>
+</body>
+</html>
+<body>
+
+</body>
+</html>

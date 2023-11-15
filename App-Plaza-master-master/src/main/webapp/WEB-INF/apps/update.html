@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/apps/{id}(id=${app.getId()})}"
+      th:method="post"
+      th:object="${app}">
+    <input th:text="name" th:field="*{name}" placeholder="name">
+    <br>
+    <input th:text="description" th:field="*{description}" placeholder="age">
+    <br>
+    <input th:text="developer" th:field="*{developer}" placeholder="developer">
+    <br>
+    <input th:text="version" th:field="*{version}" placeholder="version">
+    <br>
+    <input th:text="appStatus" th:field="*{appStatus}" placeholder="appStatus">
+
+
+</form>
+
+</body>
+</html>

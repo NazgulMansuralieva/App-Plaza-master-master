@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+        margin: auto;
+        border-collapse: collapse;
+        width: 50%;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+</style>
+<body>
+<div class="row" style="margin-top: 30px; margin-left: 200px; margin-right: 100px">
+    <div class="col-md-4" style="width: 400px;" th:each="user:${userList}"></div>
+</div>
+<table>
+    <tr style="background-color: green">
+        <th>ID</th>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>EMAIL</th>
+        <th>PASSWORD</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+        <th>CREATE</th>
+        <th></th>
+        <th></th>
+
+    </tr>
+
+    <tr th:each="user:${userList}">
+        <td th:text="${user.id} "style="background-color: aquamarine" ></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.creatDate}"></td>
+        <td class="btn btn-primary btn-sm" th:href="@{/update/{id}(id=${user.id})}"
+           role="button"><strong>UPDATE</strong></td>
+        <td class="btn btn-primary btn-sm" th:href="@{/delete/{id}(id=${user.id})}"
+                 role="button"><strong>DELETE</strong></td>
+    </tr>
+</table>
+
+</body>
+</html>
